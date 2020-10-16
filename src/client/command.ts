@@ -23,9 +23,12 @@ export default class Command {
     let called = false;
     return () => {
       if (called) return;
-      called = !called; ctx.nextCounter++;
+      called = !called; 
+      ctx.nextCounter++;
+
       let nextFunction = this.functions[ctx.nextCounter]; 
       if (nextFunction) return nextFunction(ctx, this.getNextFunction(ctx));
+      
       return;
     };
   };
