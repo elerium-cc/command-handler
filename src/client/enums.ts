@@ -1,0 +1,5 @@
+export enum CommandErrors {
+  NOT_FOUND,
+  INVAILD_CHANNEL_TYPE,
+  INSUFFICIENT_PERMISSIONS
+}

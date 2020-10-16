@@ -1,0 +1,21 @@
+{
+  "name": "command-handler",
+  "version": "1.0.0",
+  "description": "A express like command handler for discord bots",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "tsc & node ./build/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn ./src/index.ts --watch ./"
+  },
+  "author": "Stroketon",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  },
+  "devDependencies": {
+    "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0-pre.65",
+    "typescript": "^4.0.3"
+  }
+}
