@@ -20,10 +20,11 @@ export default (client: Client) =>  {
       
       if (PERMISSIONS.length !== 0) { 
         if (!member) return;
-        for (const perm of PERMISSIONS) {
-          if (!member.hasPermission(<PermissionString>perm)) return client.emit("handlerError", CommandErrors.INSUFFICIENT_PERMISSIONS, ctx);
-        };
+        try {
+          member.permissions.any(PERMISSIONS as PermissionString[])
+        } catch {return client.emit("handlerError", CommandErrors.INSUFFICIENT_PERMISSIONS, ctx)};
       };
+      
       if (!CHANNEL_TYPES.includes(channel.type)) return client.emit("handlerError", CommandErrors.INVAILD_CHANNEL_TYPE, ctx);
       command.run(ctx);
     };
